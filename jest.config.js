@@ -6,5 +6,6 @@ module.exports = {
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     preset: 'jest-puppeteer',
-    testPathIgnorePatterns: ['/node_modules/', '/test-suite/', '/helpers/']
+    testPathIgnorePatterns: ['/node_modules/', '/test-suite/', '/helpers/'],
+    setupTestFrameworkScriptFile: './jest.setup.js'
 };
