@@ -1,16 +1,22 @@
 {
-  "name": "paries",
-  "version": "1.0.0",
-  "description": "A canvas library.",
-  "main": "index.js",
-  "repository": "https://github.com/jolle/paries",
-  "author": "jolle",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/jest": "^23.3.2",
-    "jest": "^23.5.0",
-    "jest-canvas-mock": "^1.1.0",
-    "ts-jest": "^23.1.4",
-    "typescript": "^3.0.3"
-  }
+    "name": "paries",
+    "version": "1.0.0",
+    "description": "A canvas library.",
+    "main": "index.js",
+    "repository": "https://github.com/jolle/paries",
+    "author": "jolle",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jest": "^23.3.2",
+        "@types/rollup": "^0.54.0",
+        "jest": "^23.5.0",
+        "jest-puppeteer": "^3.3.1",
+        "jimp": "^0.4.0",
+        "parcel": "^1.9.7",
+        "parcel-bundler": "^1.9.7",
+        "puppeteer": "^1.8.0",
+        "ts-jest": "^23.1.4",
+        "typescript": "^3.0.3"
+    },
+    "dependencies": {}
 }

@@ -3,3 +3,4 @@ node_modules
 test-suite
 dist
 .DS_Store
+*.log

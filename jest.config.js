@@ -5,5 +5,6 @@ module.exports = {
     },
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-    setupFiles: ['jest-canvas-mock']
+    preset: 'jest-puppeteer',
+    testPathIgnorePatterns: ['/node_modules/', '/test-suite/', '/helpers/']
 };
