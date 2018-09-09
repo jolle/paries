@@ -20,7 +20,6 @@ class Line extends Entity implements EntityInterface {
     }
 
     draw(ctx: CanvasRenderingContext2D) {
-        console.log('drawing line');
         ctx.beginPath();
         ctx.moveTo(this.props.sX, this.props.sY);
         ctx.lineTo(this.props.dX, this.props.dY);
