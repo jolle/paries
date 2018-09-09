@@ -24,18 +24,9 @@ describe('line', () => {
                 await generateTestingPage()
             ).toString('base64')}`
         );
-        //await new Promise(resolve => setTimeout(() => resolve(), 1000));
-    });
-
-    it('loads the test page', async () => {
-        await expect(page).toMatch('paries test');
     });
 
     it('creates a green line', async () => {
-        /*
-        line forumula: y = x
-        */
-
         const canvasId = await page.evaluate(() => {
             const canvas = paries(
                 {

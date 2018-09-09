@@ -24,11 +24,6 @@ describe('rect', () => {
                 await generateTestingPage()
             ).toString('base64')}`
         );
-        //await new Promise(resolve => setTimeout(() => resolve(), 1000));
-    });
-
-    it('loads the test page', async () => {
-        await expect(page).toMatch('paries test');
     });
 
     it('creates a red rectangle', async () => {
