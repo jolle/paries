@@ -1,3 +1,6 @@
+import { rect } from './helpers/rect';
+import { layer } from './helpers/layer';
+import { line } from './helpers/line';
 import { Entity, EntityInterface } from './Entity';
 
 export interface pariesOpts {
@@ -33,3 +36,5 @@ export const paries = (
 
     return canvas;
 };
+
+export { line, layer, rect };
