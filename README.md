@@ -1,1 +1,1 @@
-# ![pariēs](./.github/logo.png =300x100)
+# <img src="./.github/logo.png" width="300" height="100" alt="pariēs">
