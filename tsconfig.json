@@ -4,6 +4,8 @@
         "module": "commonjs",
         "lib": ["es2018", "dom"],
         "strict": true,
-        "esModuleInterop": true
-    }
+        "esModuleInterop": true,
+        "outDir": "build"
+    },
+    "exclude": ["test-suite", "__tests__"]
 }
