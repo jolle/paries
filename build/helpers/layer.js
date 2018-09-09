@@ -42,6 +42,7 @@ var Layer = /** @class */ (function (_super) {
     };
     return Layer;
 }(Entity_1.Entity));
+exports.Layer = Layer;
 exports.layer = function () {
     var children = [];
     for (var _i = 0; _i < arguments.length; _i++) {

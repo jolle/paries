@@ -1,7 +1,7 @@
 import { EntityInterface } from './../Entity';
 import { Entity } from '../Entity';
 
-class Layer extends Entity implements EntityInterface {
+export class Layer extends Entity implements EntityInterface {
     props: (Entity & EntityInterface)[];
 
     canvas: HTMLCanvasElement;

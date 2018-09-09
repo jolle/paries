@@ -29,4 +29,5 @@ var Line = /** @class */ (function (_super) {
     };
     return Line;
 }(Entity_1.Entity));
+exports.Line = Line;
 exports.line = function (props) { return new Line(props); };

@@ -18,14 +18,14 @@ export interface rectWithDestination {
     dY: number;
 }
 
-interface RectangleProps {
+export interface RectangleProps {
     x: number;
     y: number;
     size: rectWithDestination | rectWithDimensions;
     opts: rectOpts;
 }
 
-class Rectangle extends Entity implements EntityInterface {
+export class Rectangle extends Entity implements EntityInterface {
     props: RectangleProps;
 
     constructor(props: RectangleProps) {

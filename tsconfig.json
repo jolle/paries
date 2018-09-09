@@ -5,7 +5,8 @@
         "lib": ["es2018", "dom"],
         "strict": true,
         "esModuleInterop": true,
-        "outDir": "build"
+        "outDir": "build",
+        "declaration": true
     },
-    "exclude": ["test-suite", "__tests__"]
+    "exclude": ["test-suite", "__tests__", "build"]
 }

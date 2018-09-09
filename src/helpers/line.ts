@@ -2,7 +2,7 @@ import { stroke } from './../common/stroke';
 import { EntityInterface } from './../Entity';
 import { Entity } from '../Entity';
 
-interface LineProps {
+export interface LineProps {
     sX: number;
     sY: number;
     dX: number;
@@ -10,7 +10,7 @@ interface LineProps {
     stroke: stroke;
 }
 
-class Line extends Entity implements EntityInterface {
+export class Line extends Entity implements EntityInterface {
     props: LineProps;
 
     constructor(props: LineProps) {

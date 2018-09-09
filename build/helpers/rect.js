@@ -40,4 +40,5 @@ var Rectangle = /** @class */ (function (_super) {
     };
     return Rectangle;
 }(Entity_1.Entity));
+exports.Rectangle = Rectangle;
 exports.rect = function (props) { return new Rectangle(props); };
