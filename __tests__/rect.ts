@@ -40,10 +40,8 @@ describe('rect', () => {
                         dX: 65,
                         dY: 24
                     },
-                    opts: {
-                        fill: {
-                            fillColor: '#00ff00'
-                        }
+                    fill: {
+                        fillColor: '#00ff00'
                     }
                 })
             );

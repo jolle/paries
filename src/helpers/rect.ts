@@ -3,11 +3,6 @@ import { stroke } from './../common/stroke';
 import { EntityInterface } from './../Entity';
 import { Entity } from '../Entity';
 
-export interface rectOpts {
-    fill?: fill;
-    stroke?: stroke;
-}
-
 export interface rectWithDimensions {
     width: number;
     height: number;
@@ -22,7 +17,8 @@ export interface RectangleProps {
     x: number;
     y: number;
     size: rectWithDestination | rectWithDimensions;
-    opts: rectOpts;
+    fill?: fill;
+    stroke?: stroke;
 }
 
 export class Rectangle extends Entity implements EntityInterface {
@@ -46,14 +42,14 @@ export class Rectangle extends Entity implements EntityInterface {
         ctx.rect(this.props.x, this.props.y, width, height);
         ctx.closePath();
 
-        if (this.props.opts.fill) {
-            ctx.fillStyle = this.props.opts.fill.fillColor;
+        if (this.props.fill) {
+            ctx.fillStyle = this.props.fill.fillColor;
             ctx.fill();
         }
 
-        if (this.props.opts.stroke) {
-            ctx.lineWidth = this.props.opts.stroke.strokeWidth;
-            ctx.strokeStyle = this.props.opts.stroke.strokeColor;
+        if (this.props.stroke) {
+            ctx.lineWidth = this.props.stroke.strokeWidth;
+            ctx.strokeStyle = this.props.stroke.strokeColor;
             ctx.stroke();
         }
     }

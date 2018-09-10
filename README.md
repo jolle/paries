@@ -18,7 +18,7 @@ const canvas = paries(
                 width: 10,
                 height: 10
             },
-            opts: { fill: { fillColor: '#00ff00' } }
+            fill: { fillColor: '#00ff00' }
         })
     ),
     rect({
@@ -28,7 +28,7 @@ const canvas = paries(
             dX: 65,
             dY: 24
         },
-        opts: { stroke: { strokeColor: '#00ff00', strokeWidth: 3 } }
+        stroke: { strokeColor: '#00ff00', strokeWidth: 3 }
     })
 );
 
