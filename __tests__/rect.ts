@@ -1,3 +1,4 @@
+import { createAndGetCanvas } from './utils/createAndGetCanvas';
 import { generateTestingPage } from './helpers/generateTestingPage';
 import jimp from 'jimp';
 
@@ -27,8 +28,8 @@ describe('rect', () => {
     });
 
     it('creates a red rectangle', async () => {
-        const canvasId = await page.evaluate(() => {
-            const canvas = paries(
+        const img = await createAndGetCanvas(() =>
+            paries(
                 {
                     width: 100,
                     height: 50
@@ -44,15 +45,8 @@ describe('rect', () => {
                         fillColor: '#00ff00'
                     }
                 })
-            );
-            canvas.id = `P${Math.random()
-                .toString(36)
-                .substr(2)}`;
-
-            document.body.appendChild(canvas);
-            return canvas.id;
-        });
-        const img = await getCanvasImage(canvasId);
+            )
+        );
 
         const isInsideBounds = (x: number, y: number) =>
             x >= 50 && x < 65 && y >= 20 && y < 24;
