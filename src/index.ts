@@ -1,3 +1,4 @@
+import { circle } from './helpers/circle';
 import { rect } from './helpers/rect';
 import { layer } from './helpers/layer';
 import { line } from './helpers/line';
@@ -37,4 +38,4 @@ export const paries = (
     return canvas;
 };
 
-export { line, layer, rect };
+export { line, layer, rect, circle };
