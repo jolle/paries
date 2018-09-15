@@ -1,3 +1,4 @@
+import { text } from './helpers/text';
 import { circle } from './helpers/circle';
 import { rect } from './helpers/rect';
 import { layer } from './helpers/layer';
@@ -9,6 +10,9 @@ export interface pariesOpts {
     height: number;
 }
 
+let parentCanvas: HTMLCanvasElement;
+export const getParentCanvas = () => parentCanvas;
+
 export const paries = (
     opts: pariesOpts,
     ...children: (Entity & EntityInterface)[]
@@ -16,6 +20,7 @@ export const paries = (
     const canvas = document.createElement('canvas');
     canvas.width = opts.width;
     canvas.height = opts.height;
+    parentCanvas = canvas;
     const ctx = canvas.getContext('2d');
 
     if (!ctx) return canvas;
@@ -38,4 +43,4 @@ export const paries = (
     return canvas;
 };
 
-export { line, layer, rect, circle };
+export { line, layer, rect, circle, text };

@@ -1,3 +1,4 @@
+import { getParentCanvas } from './../index';
 import { EntityInterface } from './../Entity';
 import { Entity } from '../Entity';
 
@@ -5,6 +6,8 @@ export class Layer extends Entity implements EntityInterface {
     props: (Entity & EntityInterface)[];
 
     canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D;
+    initiatedCanvas: boolean;
 
     constructor(props: (Entity & EntityInterface)[]) {
         super();
@@ -12,22 +15,30 @@ export class Layer extends Entity implements EntityInterface {
         this.props = props;
 
         this.canvas = document.createElement('canvas');
+        this.initiatedCanvas = false;
         const ctx = this.canvas.getContext('2d');
+        if (!ctx) throw Error('Unable to get layer canvas context');
+        this.ctx = ctx;
 
-        if (ctx !== null) {
+        if (this.ctx !== null) {
             this.props.forEach(child => {
                 if (child instanceof Entity) {
                     child.subscribe(() => {
-                        this.drawAll(ctx);
+                        this.drawAll(this.ctx);
                         this.updated();
                     });
                 }
             });
-            this.drawAll(ctx);
         }
     }
 
     draw(ctx: CanvasRenderingContext2D) {
+        if (!this.initiatedCanvas) {
+            this.initiatedCanvas = true;
+            this.canvas.width = getParentCanvas().width;
+            this.canvas.height = getParentCanvas().height;
+            this.drawAll(this.ctx);
+        }
         ctx.drawImage(this.canvas, 0, 0);
     }
 
