@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "lib": ["es2018", "dom"],
-        "strict": true,
-        "esModuleInterop": true,
-        "outDir": "build",
-        "declaration": true
-    },
-    "exclude": ["test-suite", "__tests__", "build"]
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["es2018", "dom"],
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["__tests__", "dist"]
 }

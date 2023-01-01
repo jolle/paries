@@ -1,7 +1,5 @@
 # <img src="./.github/logo.png" width="300" height="100" alt="pariēs">
 
-[![Build Status](https://api.travis-ci.com/jolle/paries.svg?branch=master)](https://travis-ci.com/jolle/paries)
-
 ```ts
 import { paries, layer, rect } from 'paries';
 

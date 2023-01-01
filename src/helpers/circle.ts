@@ -4,45 +4,40 @@ import { EntityInterface } from './../Entity';
 import { Entity } from '../Entity';
 
 export interface CircleProps {
-    x: number;
-    y: number;
-    radius: number;
-    stroke?: stroke;
-    fill?: fill;
+  x: number;
+  y: number;
+  radius: number;
+  stroke?: stroke;
+  fill?: fill;
 }
 
-export class Circle extends Entity implements EntityInterface {
-    props: CircleProps;
+export class Circle
+  extends Entity<CircleProps>
+  implements EntityInterface<CircleProps>
+{
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.beginPath();
+    ctx.arc(
+      this.props.x,
+      this.props.y,
+      this.props.radius,
+      0,
+      2 * Math.PI,
+      false,
+    );
+    ctx.closePath();
 
-    constructor(props: CircleProps) {
-        super();
-
-        this.props = props;
+    if (this.props.fill) {
+      ctx.fillStyle = this.props.fill.fillColor;
+      ctx.fill();
     }
 
-    draw(ctx: CanvasRenderingContext2D) {
-        ctx.beginPath();
-        ctx.arc(
-            this.props.x,
-            this.props.y,
-            this.props.radius,
-            0,
-            2 * Math.PI,
-            false
-        );
-        ctx.closePath();
-
-        if (this.props.fill) {
-            ctx.fillStyle = this.props.fill.fillColor;
-            ctx.fill();
-        }
-
-        if (this.props.stroke) {
-            ctx.lineWidth = this.props.stroke.strokeWidth;
-            ctx.strokeStyle = this.props.stroke.strokeColor;
-            ctx.stroke();
-        }
+    if (this.props.stroke) {
+      ctx.lineWidth = this.props.stroke.strokeWidth;
+      ctx.strokeStyle = this.props.stroke.strokeColor;
+      ctx.stroke();
     }
+  }
 }
 
 export const circle = (props: CircleProps) => new Circle(props);

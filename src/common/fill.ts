@@ -1,3 +1,3 @@
 export interface fill {
-    fillColor: string;
+  fillColor: string;
 }

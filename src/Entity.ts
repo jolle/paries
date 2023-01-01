@@ -1,26 +1,27 @@
-export interface EntityInterface {
-    draw(ctx: CanvasRenderingContext2D): void;
-    update(...args: any[]): void;
+export interface EntityInterface<T> {
+  draw(ctx: CanvasRenderingContext2D): void;
+  update(props: T): void;
 }
 
-export class Entity {
-    subscribers: Function[];
-    props: any;
+export class Entity<T> {
+  subscribers: (() => void)[];
+  props: T;
 
-    constructor() {
-        this.subscribers = [];
-    }
+  constructor(initialProps: T) {
+    this.props = initialProps;
+    this.subscribers = [];
+  }
 
-    subscribe(callback: Function) {
-        this.subscribers.push(callback);
-    }
+  subscribe(callback: () => void) {
+    this.subscribers.push(callback);
+  }
 
-    update(props: any) {
-        this.props = { ...this.props, ...props };
-        this.updated();
-    }
+  update(props: T) {
+    this.props = { ...this.props, ...props };
+    this.updated();
+  }
 
-    updated() {
-        this.subscribers.forEach(subscriber => subscriber());
-    }
+  updated() {
+    this.subscribers.forEach((subscriber) => subscriber());
+  }
 }

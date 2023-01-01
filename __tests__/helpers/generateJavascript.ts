@@ -1,18 +1,21 @@
 import { join } from 'path';
-import { readFileSync } from 'fs';
-const Bundler = require('parcel-bundler');
+import { build } from 'esbuild';
 
-export const generateJavascript = async () => {
-    const bundler = new Bundler(join(__dirname, 'testingPariesPage.ts'), {
-        outDir: '/tmp',
-        cache: false,
-        logLevel: 0,
-        watch: false,
-        sourceMaps: false,
-        minify: true
+let result: Promise<string>;
+
+export const generateJavascript = () => {
+  if (result) {
+    return result;
+  }
+
+  result = (async () => {
+    const bundle = await build({
+      entryPoints: [join(__dirname, 'testingPariesPage.ts')],
+      bundle: true,
+      write: false,
     });
-    const bundle = await bundler.bundle();
-    return readFileSync(bundle.name)
-        .toString()
-        .replace(/\n/g, ' '); // TODO: does parcel give this in `bundle`?
+    return new TextDecoder().decode(bundle.outputFiles[0].contents);
+  })();
+
+  return result;
 };

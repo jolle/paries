@@ -1,16 +1,16 @@
 import * as pariesProps from '../../src';
 
-for (let propName in pariesProps) {
-    (window as any)[propName] = (pariesProps as any)[propName];
+declare global {
+  interface Window {
+    runWithParies: (code: string) => string;
+  }
 }
 
-const originalParies = (window as any).paries;
-
-(window as any).paries = function() {
-    const result = originalParies.apply(this, arguments);
-    result.id = `P${Math.random()
-        .toString(36)
-        .substr(2)}`;
-    document.body.appendChild(result);
-    return result.id;
+window.runWithParies = (code) => {
+  const result = new Function(...Object.keys(pariesProps), `return (${code})`)(
+    ...Object.values(pariesProps),
+  );
+  result.id = `P${Math.random().toString(36).substr(2)}`;
+  document.body.appendChild(result);
+  return result.id;
 };
